@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FirstApp</string>
+    <string name="HelloWorld">Hello world Guti</string>
+    <string name="btnSubmitText">Submit</string>
+    <string name="btnSubmitText2">Cambiaste el texto</string>
+    <string name="txtText1">Presionaste el botón</string>
+</resources>
