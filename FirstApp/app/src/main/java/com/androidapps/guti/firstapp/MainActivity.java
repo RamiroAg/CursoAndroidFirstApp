@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(listener); //Asocio el listener del evento al control
 
     //TODO: implementar un contador
+        int counter = 0;
+        //Button btnDecrease = (Button) findViewById(R.id.btnDecreaseCounter);
+        //btnDecrease.setText(R.string.btnDecreaseText);
+        //MyListener increaseListener = new MyListener(txt1);
+
+        Button btnIncrease = (Button) findViewById(R.id.btnIncreaseCounter);
+        btnIncrease.setText(R.string.btnIncreaseText);
+        btnIncrease.setOnClickListener(new MyListener(txt1));
     }
 
 
