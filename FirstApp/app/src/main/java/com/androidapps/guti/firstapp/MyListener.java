@@ -2,6 +2,7 @@ package com.androidapps.guti.firstapp;
 
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 /**
  * Created by android on 05/09/17.
@@ -9,15 +10,23 @@ import android.view.View.OnClickListener;
 
 public class MyListener implements View.OnClickListener {
 
-    private View view;
+    private TextView txt;
+    private int counterValue;
+
 
     //Recibo el activity para manipular toda la vista como se me antoje
-    public MyListener(View currentView){
-        this.view = currentView;
+    public MyListener(TextView textView){
+        this.txt = textView;
+        counterValue = 0;
     }
 
     @Override
     public void onClick(View view) {
-
+        counterValue++;
+        txt.setText(String.valueOf(counterValue));
     }
 }
+
+
+
+

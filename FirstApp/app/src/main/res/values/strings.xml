@@ -4,4 +4,6 @@
     <string name="btnSubmitText">Submit</string>
     <string name="btnSubmitText2">Cambiaste el texto</string>
     <string name="txtText1">Presionaste el botón</string>
+    <string name="btnDecreaseText">Decrementar</string>
+    <string name="btnIncreaseText">Incrementar</string>
 </resources>
