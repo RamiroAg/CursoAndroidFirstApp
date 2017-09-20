@@ -1,0 +1,24 @@
+Lanzar un activity nuevo
+
+Utilizar Intents
+ - Es la descripción de una acción que se quiere realizar
+ - Describe algo que tiene que ocurrir
+ - Se representa mediante un objeto
+
+IntentFilter
+ - Es la definición de una acción que una aplicación es capaz de llevar a cabo
+
+ An Intent is an object that provides runtime binding between separate components, such as two activities.
+ The Intent represents an app’s "intent to do something."
+ You can use intents for a wide variety of tasks, but in this lesson, your intent starts another activity.
+
+ https://developer.android.com/training/basics/firstapp/starting-activity.html
+
+ Dos tipos de intent
+  - Implícitos
+  - Explícitos: se declara el nombre de una clase en particular que se quiere ejecutar
+
+ Para volver a la pantalla anterior no se debe lanzar la actividad nuevamente
+ Se puede apretar back o eliminar la activity secundaria
+
+ Lo ideal es crear un package por pantalla para tener más aislados los archivos de cada una
