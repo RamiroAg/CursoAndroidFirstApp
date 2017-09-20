@@ -22,3 +22,9 @@ IntentFilter
  Se puede apretar back o eliminar la activity secundaria
 
  Lo ideal es crear un package por pantalla para tener más aislados los archivos de cada una
+
+ Pasaje de información entre activities
+ La información se pasa dentro del Intent que invoca la nueva activity
+ Posee un diccionario clave-valor en el que puedo enviar valores
+ No puedo pasar objetos a menos que estos sean serializables
+ intent.putExtra("clave", "valor);
