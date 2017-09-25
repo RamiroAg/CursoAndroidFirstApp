@@ -1,0 +1,15 @@
+Parámetros de layouts
+Width => wrap_content, match_parent
+Match_parent => no es válido para un constraint layout
+layout_weigth Proporción de separacion entre elementos, en total debe sumar 1
+
+Gravity=> parámetro de una view para alinear el contenido de un elemento
+center, bottom, left, right
+
+Layout_gravity: igual que gravity pero el parámetro es utilizado por el contenedor de la view (control)
+
+Padding: espacio entre el borde de la view y su contenido
+Margin: Se sitúa entre el borde  de la view y los bordes de los elementos que lo redean o del layout que lo contiene
+
+Al hacer drag and drop de controles, evitar manipular medidas desde los cuadraditos ya que agregan atributos
+indeseados a las properties del control
