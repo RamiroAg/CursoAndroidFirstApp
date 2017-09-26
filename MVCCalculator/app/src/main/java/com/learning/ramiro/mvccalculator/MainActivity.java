@@ -1,9 +1,7 @@
-package com.androidapps.guti.multilanguageapp;
+package com.learning.ramiro.mvccalculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,8 +10,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView txt1 =  (TextView) findViewById(R.id.txt1);
-        ImageView img =  (ImageView) findViewById(R.id.imageView);
-        img.setImageResource(R.drawable.anakin);
+        Model model = new Model();
+        ScreenManager screenManager = new ScreenManager(this);
+
+        Controller controller = new Controller(model,screenManager);
     }
 }
