@@ -1,0 +1,33 @@
+Para usar un combo desplegable es necesario usar un Adapter.
+Genera un objeto del tipo view para cada item que el form widget debe mostrar
+
+La particularidad que tienen todos los widgets que manejan listas, es que no conocen que están mostrando.
+Cada item es una view
+
+El combo muestra un textview por cada item
+
+El spinner va a esperar del Adapter le pase los elementos de la lista. Le devuelve textos al spinner
+El adapter lo provee una api de android
+
+El adapter genera las views y genera los textviews con información.
+
+
+Listas en JAVA
+ - ArrayList
+ - Iterator
+ - Foreach
+
+Arrays vs. Listas
+Collections de java: listas, pilas, colas y diccionarios
+ - ArrayList => internamente maneja un array
+ - LinkedList => internamente maneja una lista enlazada (es más rápido el borrado)
+*Difieren en cómo manejan internamente la lista
+
+Métodos relevantes:
+ - add(obj): agrega al final
+ - add(index, obj): agrega en posición i
+ - remove(i): borra de índice i
+ - remove(obj): borra la primera ocurrencia del objeto especificado
+ - get(index)
+ - contains(obj)
+ - size()

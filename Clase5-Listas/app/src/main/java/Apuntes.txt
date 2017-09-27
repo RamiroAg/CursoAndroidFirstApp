@@ -1,0 +1,33 @@
+REPASO DE INTENTS
+
+Una aplicación puede tener múltiples activities de entrada.
+No siempre se inicia desde la pantalla principal.
+Desde un intent se puede forzar a abrir una aplicación determinada llamándola desde su nombre de package
+
+Activity A => Activity B
+Si A lanza B, cómo paso datos de B => A??
+Si defino en una tercera clase, un atributo estático, puedo acceder a dichos atributos desde cualquier Activity.
+
+En qué momento puedo lanzar la lectura de la clase estática?
+Tengo que detectar el evento de vuelta al activity.
+Según el ciclo de vida de un activity puedo utilizar el evento onRestar(), onStart() u onResume()
+Se elije utilizar onRestart()
+
+La manera de hacerlo mejor:
+Ejecutar activity con otro método => StartActivityForResult()
+Cuando la actividad lanzada muera, retorna una respuesta a la actividad que la invocó
+
+En la activity original se invoca el método onActivityResult()
+Se evalua el requestCode, el resultCode
+
+Intent i = new Intent(this, MemoActivity.class);
+startActivityForResult(i, 0);
+//El segundo parámetro (requestCode) es un int que el desarrollador puede usar para identificar a qué activity se está enviando la data
+
+En la 2da activity, creamos un intent con la información a devolver mediante putExtra()
+Intent intent = new Intent():
+intent.putExtra("clave", "texto");
+
+Pasamos el Intent
+
+

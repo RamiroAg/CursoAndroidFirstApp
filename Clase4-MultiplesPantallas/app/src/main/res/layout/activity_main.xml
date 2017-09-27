@@ -5,20 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.androidapps.guti.clase4_multiplespantallas.MainActivity"
-    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteY="89dp"
     tools:layout_editor_absoluteX="0dp">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="271dp"
+        tools:layout_editor_absoluteY="63dp" />
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="173dp" />
 
     <EditText
         android:id="@+id/editText"
@@ -27,12 +31,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/button2"
-        android:layout_marginTop="49dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.939" />
+        tools:layout_editor_absoluteY="285dp"
+        tools:layout_editor_absoluteX="191dp" />
 </android.support.constraint.ConstraintLayout>
