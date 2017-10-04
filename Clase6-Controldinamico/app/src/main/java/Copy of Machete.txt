@@ -1,0 +1,95 @@
+
+dependencies {
+
+     compile 'com.android.support:recyclerview-v7:+'
+
+}
+
+_________________________________________________________________
+
+
+public class Persona {
+
+    private String nombre;
+    private String apellido;
+
+    public void setNombre(String texto1) {
+        this.nombre = texto1;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setApellido(String texto2) {
+        this.apellido = texto2;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+}
+
+_________________________________________________________________
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/avatar"
+        android:id="@+id/imageView" />
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtNombre" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/txtApellido" />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+_________________________________________________________________
+
+
+<android.support.v7.widget.RecyclerView
+android:id="@+id/list"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:scrollbars="vertical" />
+
+
+_________________________________________________________________
+
+
+
+View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
+
+
+
+_________________________________________________________________
+
+
+    rv.setLayoutManager(new LinearLayoutManager(this));
+
+

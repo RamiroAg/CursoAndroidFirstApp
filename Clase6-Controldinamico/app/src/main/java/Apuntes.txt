@@ -1,0 +1,33 @@
+Para implementar Recycler View
+Crear un Adapter propio
+Crear un layout
+
+El control puede mostrar distintos tipos de elementos
+
+Permite mostrar items en forma de lista o grilla
+Permite manejar varios eventos de click sobre items
+Se necesita definir un adapter propio
+
+En el archivo build.graddle, la versión del archivo de compatibilidad debe coincidir con la versión del recycler view
+
+1- Crear Clase
+2- Crear Layout para definir que hay en cada ítem
+
+El adapter tiene una referencia a el arraylist
+El adaprter no ejecuta nigún método del recycler view
+El recycler tiene una referencia de mi adapter, ejecutará tres métodos distintos del adapter
+
+Mensaje 1 => R a A: cuántos ítems? (devolver Lista.Size())
+M2 => R a A: Devolveme un objeto view que contenga todos los elementos a mostrar por ítem (view pelada, sin datos)
+Agarro un XML y lo transformo en un objeto (inflate del xml)
+Devuelvo ese objeto view
+M3 => R a A: Dame la view cargada con el objeto de posición 0
+
+Se repiten los mensajes 2 y 3 hasta que se complete la pantalla (no carga toda la lista)
+Al scrollear sólo se repite el paso 3 porque el paso 2 se crea por cada objeto en pantalla solamente.
+    Acá es donde recicla las vistas anteriormente creadas para no desperdiciar RAM. Sólo habrá la cant que entre en pantalla +1
+
+
+ Para actualizar el contenido de la lista (al hacer ABM en el modelo)
+ Ejecutar:
+ adapter.NotifyDataSetChanged();

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         //El tipo del adapter deberá coincidir con el tipo de elementos de la lista que paso como parámetro
         //Primer parámetro: el activity, segundo: un layout que tenga adentro el textview que va a mostrar el control
         //Uso un R que provee una api de android para traer el layout que necesito
+        //Si acá enviara un layout propio, podría cambiarle las propiedades (p.ej. color)
 
         spinner.setAdapter(adapter);
     }
