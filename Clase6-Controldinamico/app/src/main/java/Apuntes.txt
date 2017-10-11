@@ -31,3 +31,6 @@ Al scrollear sólo se repite el paso 3 porque el paso 2 se crea por cada objeto 
  Para actualizar el contenido de la lista (al hacer ABM en el modelo)
  Ejecutar:
  adapter.NotifyDataSetChanged();
+
+
+ NO REUTILIZAR ADAPTERS => Que siempre exista uno por recyclerview

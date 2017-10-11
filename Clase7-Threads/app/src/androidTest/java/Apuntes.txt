@@ -1,0 +1,22 @@
+Propósito => evitar operaciones bloqueantes en el flujo de la aplicación
+
+GUI Thread => todo nuestro código se ejecuta en este hilo
+
+Formas de usar threads en Android
+ - Clase Thread de JAVA (más flexible)
+ - AsyncTasks de Android
+
+Cómo Crear?
+Heredando de la clase Thread
+o Implementando la interfaz Runnable
+
+Un hilo infinito, al cerrar la aplicación, hace que no muera el proceso y se ejecute de fondo consumiendo recursos
+
+LIMITACIÓN: sólo el thread de gráfica puede modificar los elementos en pantalla
+Otro hilo que lo intente generará una excepción
+
+Se pueden usar Message y Handler para modificar la pantalla
+Implementar la interfaz Callback, encargada del manejo de mensajes entre threads
+
+Para manejar los mensajes de n threads alcanza con instanciar un único handler
+Handler posee 3 atributos, Arg1, Arg2 y Object
