@@ -1,0 +1,2 @@
+Permiso para leer el estado de internet (no es necesario)
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

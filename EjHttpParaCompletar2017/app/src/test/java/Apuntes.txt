@@ -1,0 +1,27 @@
+Los métodos de la clase HttpManager son bloqueantes.
+Por eso debemos llamrlos dentro de un thread
+
+La clase ThreadConexion en vez de heredar de thread, implementa Runnable
+Para ejecutar un runnable se debe cargar dentro de un thread y luego ejecutar el mismo.
+
+En el manifest se deben agregar los permisos de conexión a internet
+<uses-permission android:name="android.permission.INTERNET" />
+
+Al método estático BitmapFactory.decodeByteArray
+se le puede enviar un objeto opciones para manipular un png antes de descomprimirlo y, por ejemplo, escalar la imagen
+
+Interacción con internet
+Verbos HTTP
+ - Get => la información va en la url (clave valor). Está pensado para que el server retorne datos y no el cliente.
+ - Post => Pensado para enviar mas volumen de datos. Los datos van en el cuerpo del mensaje y no en el header (como GET)
+ Se pueden enviar, por ejemplo, formularios. Devuelve siempre un código (200, 404, etc)
+ - Delete
+ - Patch
+ - Put
+
+ Con todos estos mensajes se construyen las APIs REST
+ La data viene en XML, JSON, CSV para poder crear objetos java
+
+Según el tipo de request, se le asocia diferente información al mensaje
+
+El stream es una abstracción para representar cualquier fuente de datos sobre la que puedo leer o escribir
