@@ -1,0 +1,23 @@
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+builder.setTitle("Alerta!");
+builder.setMessage("Mensaje de alerta");
+
+builder.setPositiveButton("Aceptar", this);
+// Creamos el dialogo
+AlertDialog ad = builder.create();
+ad.show();
+
+____________________________________________________
+
+
+
+MiDialogo dialog = new MiDialogo();
+dialog.show(getSupportFragmentManager(), "dialogo");
+
+
+
+_____________________________________________________
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+

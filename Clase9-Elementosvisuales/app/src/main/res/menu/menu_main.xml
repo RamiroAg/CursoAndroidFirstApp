@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.androidapps.guti.clase9_elementosvisuales.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+    <!--Si está en Never, aparece en el menú-->
+    <!--Si está en always lo agrega fuera-->
+    <item
+        android:id="@+id/Opcion1"
+        android:orderInCategory="100"
+        android:title="Opcion 1"
+        app:showAsAction="ifRoom" />
+    <!--Si cabe en la barra, se muestra. Si no hay espacio se mostrará en el menú desplegable-->
+
+    <item
+        android:id="@+id/Opcion2"
+        android:orderInCategory="100"
+        android:title="Opcion 2"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/Opcion3"
+        android:orderInCategory="100"
+        android:title="Opcion 3"
+        app:showAsAction="never" />
+</menu>

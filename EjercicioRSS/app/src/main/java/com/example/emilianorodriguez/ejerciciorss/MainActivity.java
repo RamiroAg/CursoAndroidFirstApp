@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
                 Log.d("Largo de lista", String.valueOf(listaNoticias.size()));
 
                 //Recorro la lista de noticias para cargar las imágenes en cada una
+                //Remplazar creación de 50 threads por pool de threads
                 int i = 0;
                 for (Noticia n : listaNoticias){
                     ThreadConexion tc = new ThreadConexion(n.getImageUrl(), true, handler);

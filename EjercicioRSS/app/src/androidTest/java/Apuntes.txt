@@ -1,2 +1,21 @@
 Permiso para leer el estado de internet (no es necesario)
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+Para obtener el XML desde la url del RSS, en linux:
+wget http://rss.cnn.com/rss/edition.rss
+
+Entendiendo el parser XML
+Se compone de Tags
+Cada tag puede tener:
+ - Atributos (dentro del tag de inicio)
+ - Contenido: texto comprendido en tag de apertura y cierre
+ - Nombre del tag
+
+Hay 3 tipos de parser:
+ - DOM (Document object model) => lee el documento completo y lo lleva a memoria para poder consultarlo entero
+    Conviene cuando el docu es chico
+ - SAX => (stream based) Se van ejecutando métodos a medida que el parser va encontrando tags
+ - XmlPull => (stream based) similar a SAX. Va leyendo de a poco y se le puede consultar sobre qué tags va encontrando
+Android trae incorporado los tres
+

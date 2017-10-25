@@ -1,0 +1,22 @@
+El template de basic crea una app con dos layout
+Este tipo de proytecto incluye un tema que no tiene incluida la toolbar por default
+
+Ahora necesitamos la toolbar como un objeto para poder interactuar
+
+El coordinator layout permite utilizar animaciones
+
+El botón flotante está orientado a relizar la actividad ppal del Activity actual
+El menú desplegable en la barra superior está orientado al manejo de configuraciones
+
+Dialogs
+Tapa parcialmente la actividad. Queda en estado paused.
+No se bloquea el código al lanzar dialogs. Son asincrónicos
+
+Para crear el dialog: crear un objeto builder, setear cantidad de botones, setear los listeners.
+
+Con builder.SetView() le puedo asignar un layout creado por mi para customizar aún más la popup
+
+Actualmente los dialogs se pueden tratar como fragments. Para esto, crear una clase por c/diálogo
+
+Para customizar los objetos de clase GutiDialog no se pueden pasarle cosas por constructor por heredar de la clase fragment.
+Deben usarse bundles.
