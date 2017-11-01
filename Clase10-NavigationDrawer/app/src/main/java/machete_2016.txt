@@ -1,0 +1,144 @@
+en content_main, reemplazamos por el TextView:
+
+<LinearLayout
+                android:id="@+id/contenedor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/sistema_solar"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+			
+			
+______________________________________________________________________			
+
+en navheader_main, reemplazamos:
+
+    android:background="@drawable/sistema_solar"
+	
+______________________________________________________________________	
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_item_mercurio"
+            android:checked="true"
+            android:title="Mercurio"/>
+        <item
+            android:id="@+id/drawer_item_venus"
+            android:title="Venus"/>
+        <item
+            android:id="@+id/drawer_item_tierra"
+            android:title="Tierra"/>
+        <item
+            android:id="@+id/drawer_item_marte"
+            android:title="Marte"/>
+        <item
+            android:id="@+id/drawer_item_jupiter"
+            android:title="Jupiter"/>
+    </group>
+</menu>
+
+______________________________________________________________________	
+
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class Contenido1 extends Fragment{
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.layout_contenido1, container,false);
+
+        ImageView img = (ImageView)v.findViewById(R.id.imgPlaneta);
+        TextView txtTitulo = (TextView)v.findViewById(R.id.txtTitulo);
+        TextView txtInfo = (TextView)v.findViewById(R.id.txtInfo);
+
+        Bundle args = getArguments();
+        int idPlaneta = args.getInt("idPlaneta");
+        switch(idPlaneta)
+        {
+            case 0:
+                img.setImageResource(R.drawable.mercurio);
+                txtTitulo.setText(getText(R.string.titulo_mercurio));
+                txtInfo.setText(getText(R.string.info_mercurio));
+                break;
+            case 1:
+                img.setImageResource(R.drawable.venus);
+                txtTitulo.setText(getText(R.string.titulo_venus));
+                txtInfo.setText(getText(R.string.info_venus));
+                break;
+            case 2:
+                img.setImageResource(R.drawable.tierra);
+                txtTitulo.setText(getText(R.string.titulo_tierra));
+                txtInfo.setText(getText(R.string.info_tierra));
+                break;
+            case 3:
+                img.setImageResource(R.drawable.marte);
+                txtTitulo.setText(getText(R.string.titulo_marte));
+                txtInfo.setText(getText(R.string.info_marte));
+                break;
+            case 4:
+                img.setImageResource(R.drawable.jupiter);
+                txtTitulo.setText(getText(R.string.titulo_jupiter));
+                txtInfo.setText(getText(R.string.info_jupiter));
+                break;
+        }
+
+        return v;
+    }
+}
+
+_____________________________________________________________________________________________________
+
+
+    private void setContenido(int numeroContenido)
+    {
+        Fragment fragment;
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("idPlaneta",numeroContenido);
+
+        if(numeroContenido%2==0)
+            fragment = new Contenido1();
+        else
+            fragment = new Contenido2();
+
+        fragment.setArguments(bundle);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.contenedor, fragment)
+                .commit();
+
+    }
+
+_____________________________________________________________________________________________________
+	
+        int id = item.getItemId();
+        switch (id)
+        {
+            case R.id.drawer_item_mercurio:
+                setContenido(0);break;
+            case R.id.drawer_item_venus:
+                setContenido(1);break;
+            case R.id.drawer_item_tierra:
+                setContenido(2);break;
+            case R.id.drawer_item_marte:
+                setContenido(3);break;
+            case R.id.drawer_item_jupiter:
+                setContenido(4);break;
+        }	

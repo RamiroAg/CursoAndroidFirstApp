@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); //Traigo la toolbar
         setSupportActionBar(toolbar);   //Indico que será utilizada como action bar (antes el widget se llamaba actionbar)
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true); //La flecha se deberá porner en todas las actividades que no sean la ppal
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);   //Traigo el botón flotante
         //Usa clase anónima, seteo un onClickListener al botón
@@ -83,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         }
         else if (id == R.id.Opcion3){
             Log.d("Menu event", "Click en Opcion3");
+        }
+        else if (id == android.R.id.home){
+            Log.d("Menu event", "Click en Back");
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

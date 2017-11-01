@@ -1,0 +1,11 @@
+Cómo cambiamos el contenido del activity según el ítem de manú lateral seleccionado?
+Uso Fragments! => se trabaja sobre la misma activity
+
+Cada fragment tendrá su lógica y su layout. Se agregarán fragments a voluntad
+
+Cada fragment tiene asociado un layout
+
+Para evitar crear un fragment con cada click en el menú, puedo crear un array de fragments para reutilizar los ya creados.
+Así los dejo a todos creados en memoria.
+
+Dependiendo el tipo de la app, tendrá sentido o no recargar la info de cada fragment
