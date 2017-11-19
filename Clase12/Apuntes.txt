@@ -1,0 +1,36 @@
+Las aplicaciones tipo broadcast receiver sirven para escuchar todo tipo de eventos del sistema operativo.
+Se pueden escuchar eventos de alarmas seteadas en el SO.
+No poseen interfaz gráfica.
+
+Contienen un método que se ejecutará cuando se produzca el evento.
+La ventaja consiste en que no es necesario tener una app escuchando por la ocurrencia de un evento todo el tiempo.
+
+El BR puede:
+ - Mostrar un mensaje en la barra de notificaciónes
+ - Ejecuta un servicio
+ - Ejecuta una app (no recomendado, es invasivo)
+
+Evita tener una app abierta a la espera de un evento
+
+Un evento puede ser el fin de booteo del SO
+
+Los BR se declaran en el manifest, así también los eventos que escucharán.
+
+El SO maneja una lista de BR en el teléfono, cada uno con el evento que escucha. Ante la ocurrencia de eventos se controlará esa lista para ver que procesos se deben ejecutar.
+
+REGLA: El código que se ejecuta deberá ser liviano, no debe ocupar mucho procesamiento.
+
+Un BR puede anular un evento para que otros BR no lo puedan escuchar.
+Se puede asignar una prioridad a un BR para la interrupción de eventos y que un BR con menor prioridad no lo escuche.
+
+REGLA: No anular BRs
+
+Las alarmas no se guardan. Cuando inicia el SO no posee ninguna alarma
+Las alarmas se pueden guardar en una BD para que con un BR se carguen al producirse el evento de fin de booteo del SO
+
+Un ejemplo es la sincronización de datos con un server al detectarse conección a internet por wifi
+
+Un BR siempre tiene que estar asociado y contenido en una app.
+Por motivos de seguridad al instalar la app, por defecto todos los BR están desactivados hasta que por lo menos el user abra una vez un activity de la app.
+
+Se puede hacer un sólo BR con muchos intent filter para manejar múltiples eventos o se puede programar un BR para cada tipo de evento a controlar.

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "576712573347",
+    "firebase_url": "https://guti-android-project.firebaseio.com",
+    "project_id": "guti-android-project",
+    "storage_bucket": "guti-android-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576712573347:android:22baa0d01dea7bd2",
+        "android_client_info": {
+          "package_name": "com.androidapps.guti.clase12_firebasecloudmessaging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576712573347-iekt5d49ua2si9msqbhkv8k97u2ieirb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.androidapps.guti.clase12_firebasecloudmessaging",
+            "certificate_hash": "d30db3a83ecb23985011c26cdf32413a1044338c"
+          }
+        },
+        {
+          "client_id": "576712573347-7927bmm7sbie0euii4o91ploc56j4flg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCYfYswi1X0JyKeEy8tLklMn3M-kzw3ZI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576712573347-7927bmm7sbie0euii4o91ploc56j4flg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

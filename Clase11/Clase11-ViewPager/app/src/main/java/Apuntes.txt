@@ -1,0 +1,4 @@
+Cada uno de los contenidos que se mostrarán en el view Pager es un fragment.
+
+Los tabs asociados al view pager están contenidos debajo de la toolbar.
+    El widget es tablayout

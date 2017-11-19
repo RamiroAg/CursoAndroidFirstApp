@@ -1,0 +1,14 @@
+Cualquier widget puede ser modificado en apariencia.
+Al botón se le puede modificar el background
+
+Dentro de un selector puedo definir diferentes estados para manipular imágenes
+El selector se puede definir para diferentes widgets
+
+Al background del botón le asigno el archivo del selector. Se comportará como una imágen inteligente.
+
+Para que las imágenes no se vean estiradas puedo definir que parte de la misma se puede estirar y cual no.
+Solución: NinePatch graphic
+A la imagen se le agrega un píxel más de borde. Estos indicarán con píxeles negros que partes de la imágen se estirarán
+Otras dos líneas indicarán las coordenadas del contenido.
+
+Para esto hay que transformar el archivo de imagen en 9-Patch File

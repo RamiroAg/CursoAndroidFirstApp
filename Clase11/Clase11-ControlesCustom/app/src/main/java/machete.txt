@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_focused="false"
+	android:state_pressed="false"
+	android:drawable="@drawable/img_boton" />
+
+	<item android:state_focused="true"
+	android:state_pressed="false"
+	android:drawable="@drawable/img_boton" />
+
+	<item android:state_focused="true"
+	android:state_pressed="true"
+	android:drawable="@drawable/img_boton_presionado" />
+
+	<item android:state_focused="false"
+	android:state_pressed="true"
+	android:drawable="@drawable/img_boton_presionado" />
+    
+</selector>
+
+
+_________________________________________________________________________________________________________
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+  android:shape="rectangle">
+
+  <gradient 
+	  android:startColor="@color/color_start" 
+    android:endColor="@color/color_end"
+    android:angle="270" />
+
+  <corners android:radius="3dp" />
+
+  <stroke 
+		android:width="3dp" 
+		android:color="@color/color_linea" />
+
+</shape>
+
+
+_________________________________________________________________________________________________________
+
+
+https://developer.android.com/guide/topics/resources/drawable-resource.html#Shape
