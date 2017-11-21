@@ -3,6 +3,9 @@ package com.androidapps.guti.teameventsmanager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.androidapps.guti.teameventsmanager.events.EventsController;
+import com.androidapps.guti.teameventsmanager.workgroups.WorkgroupsController;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -83,17 +89,42 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_item_events) {
-            // Handle the camera action
+            Log.d("NavigationDrawer", "Events Item presed");
+            showFragment(0);
         } else if (id == R.id.nav_item_maintenance) {
-
+            Log.d("NavigationDrawer", "Maintenance Item presed");
+            showFragment(1);
         } else if (id == R.id.nav_item_team1) {
-
+            Log.d("NavigationDrawer", "Team1 Item presed");
         } else if (id == R.id.nav_item_team2) {
-
+            Log.d("NavigationDrawer", "Team2 Item presed");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showFragment(int numeroContenido)
+    {
+        Fragment fragment;
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("idPlaneta",numeroContenido);
+
+        if(numeroContenido == 0)
+            fragment = new WorkgroupsController();
+        else
+            fragment = new EventsController();
+
+        fragment.setArguments(bundle);
+
+        //Objeto que permite hacer el intercambio de Fragments
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_fragment_container, fragment) //Remplaza un fragment
+                .commit();
+        //Si hay algún fragment en el layout "contenedor" lo saca y en su lugar pone fragment
+
     }
 }
