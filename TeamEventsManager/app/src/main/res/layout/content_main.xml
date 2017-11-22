@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.androidapps.guti.clase10_navigationdrawer.MainActivity"
-    tools:showIn="@layout/app_bar_main"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:context="com.androidapps.guti.teameventsmanager.MainActivity"
+    tools:showIn="@layout/app_bar_main">
 
     <!--Este layout contendrá los distintos fragments que serán las diferentes pantallas de mi app-->
     <LinearLayout
-        android:id="@+id/contenedor"
+        android:id="@+id/main_fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -24,10 +22,5 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1">
-        <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:src="@drawable/sistema_solar"-->
-        <!--android:layout_height="wrap_content" />-->
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
