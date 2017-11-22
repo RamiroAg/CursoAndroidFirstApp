@@ -1,0 +1,45 @@
+Formas de persistencia local (en el teléfono)
+1 - Archivos, se leen mediante streams
+2 - SQLite, incorporado en android studio
+3 - Shared Preferences (Archivo XML)
+
+Tipos de memoria:
+ - Interna: por defecto ya tengo permisos de lectura/escritura. Se accede sólo a la carpeta de la app
+ - SD (externa): Necesito permisos de lectura/escritura y se puede acceder a la toda la memoria.
+    Tener en cuenta que el user puede extraer la memoria, evaluar si está al consultar.
+
+BD:
+ - Base de datos relacional. SQLite
+ - Particularidades de SQLite:
+    - No utiliza conexión cliente-servidor
+    - El motor de sqlite se integra con el programa pasando a ser parte del mismo
+    - El programa utiliza funciones de SQLite a través de llamadas simples a subrutinas y funciones. La biblioteca es parte del programa
+    - La base de datos en conjunto, es guardada en un sólo archivo
+    - El motor no existe en SQLite, sólo se compone de una biblioteca que lee y escribe un archivo utilizando funciones SQL
+    - Es más limitado que otras bases de datos
+  - Tipos de datos
+    - SQLite asigna a cada campo un tipo de dato pero permite insertar un string en una columna de tipo entero
+    - No se recomienda almacenar bytes (de imágenes, ect.) tipo BLOB
+
+ - Para manejar BD con android primero vamos a crear un archivo que será usado como BD. Se crea con SQLite database browser
+ - El identificador autoincremental, en android debe llamarse siempre "_id"
+
+CREAR BD en android
+ - Agregar una tabla "android_metadata" la cual debe contener la columna "locale" del tipo TEXT
+ - Si no está este campo no anda la biblioteca
+ - Agregar el archivo de la base de datos creada en la solución
+    => Carpeta ASSETS permite almacenar recursos de sólo lectura. Destinado para lo que no corresponda a resources
+    => Se puede guardar la base vacía o esqueleto para luego ser copiada a la memoria interna o SD
+        - El copiado deberá hacerse a mano a algún lugar en el que se pueda leer y escribir
+        - Se copia a "/data/data/package de la app/databases/"
+        - Para imágenes:"/data/data/package de la app/images/"
+        - La aplicación sólo ve desde el nombre del package en adelante
+
+USO DE LA BD
+ - Crear una entidad DAO para la manipulación de datos en la base de datos local
+ - Para ejecutar una sentencia SQL usamos el método execSQL()
+    - recibe un string con la sentencia
+    - usar para insert, update y delete
+ - Uso de sentencias precompiladas
+    - Crear un insert, update o delete parametrizable e ir bindeando de a uno cada parámetro a través de un "statement"
+ - Cerrar la conexión a la BD en el onDestroy(), no en onStop() porque se ejecuta al pasar de un activity a otra

@@ -1,0 +1,20 @@
+MyOpenHelper oh = new MyOpenHelper(this, "personasdb.db3");
+
+        SQLiteDatabase db = oh.getWritableDatabase();
+
+        Cursor c;
+
+        c = db.rawQuery("SELECT _id,nombre,edad FROM personas WHERE _id=1",null);
+
+        if(c.moveToFirst())
+        {
+
+            long id = c.getLong(0);
+            String nombre = c.getString(1);
+            int edad = c.getInt(2);
+            Log.d("db", "Persona. id:" + id + " nombre:" + nombre + " edad:" + edad);
+        }
+        c.close();
+        db.close();
+        oh.close();
+
