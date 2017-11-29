@@ -1,0 +1,77 @@
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
+_______________________________________________________________________
+
+
+https://developer.android.com/training/permissions/requesting.html
+
+
+_______________________________________________________________________
+Habilitar gps con chequeo de permisos (version>=android 6)
+_______________________________________________________________________
+
+	LocationManager locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && 		         ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            
+		ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},
+                    0);
+            return;
+        }
+        LocationListener miLocListener = new GpsListener();
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, miLocListener);
+_______________________________________________________________________
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if(grantResults[0]== PackageManager.PERMISSION_GRANTED && grantResults[1]==PackageManager.PERMISSION_GRANTED)
+        {
+            try {
+                Log.d("a","version nueva, habilito location, se asigno el permiso");
+                LocationListener miLocListener = new GpsListener();
+                locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, miLocListener);
+            }catch(SecurityException e){}
+        }
+    }
+_______________________________________________________________________
+
+
+
+
+_______________________________________________________________________
+Para detectar si el gps esta encendido o no
+_______________________________________________________________________
+
+@Override
+    protected void onResume() {
+        super.onResume();
+        if (locManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ==
+                false && flagActivarGps == false) {
+            // creamos el dialogo
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Alerta!");
+            builder.setMessage("Se debe encender el GPS");
+            builder.setPositiveButton("Aceptar", this);
+            builder.setNegativeButton("Cancelar", null);
+            AlertDialog ad = builder.create();
+            ad.show();
+            flagActivarGps=true;
+        }
+    }
+_______________________________________________________________________
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        Intent i = new Intent(android.provider.Settings.
+                ACTION_LOCATION_SOURCE_SETTINGS);
+        startActivity(i);
+    }
+
+
+
+

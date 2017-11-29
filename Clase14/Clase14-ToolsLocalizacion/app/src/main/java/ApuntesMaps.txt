@@ -1,0 +1,25 @@
+En nuestra app mostramos un mapa dentro de un Fragment. No hay límites para usar mapas en una app
+Tenemos que generar una key para poder utilizar los mapas. Esto es igual para usar diferentes apis de google.
+Esta key tenemos que darla de alta en una pág de google
+
+compile 'com.google.android.gms:play-services-maps:10.2.0'
+Hay que agregar en el gradle esta línea para poder agregar los servicios de google
+
+La construcción de una APK implica una firma. Un código que se agregará en la app para generar el instalador
+El código de la firma saldrá de un certificado que posee los datos del desarrollador.
+
+EL certificado de debug lo genera sólo el ide al compilar. Estas no se pueden subir a google play.
+Para esto hay que crear un certificado propio y con esto decirle al IDE que lo incorpore al generar la app desde
+    Build -> Generate Signed APK...
+
+TENER EN CUENTA no perder el archivo usado de certificado para firmar la app
+porque si no las posteriores actualizaciones no serán reconocidas como tal
+
+Usando el nombre de la app (com.androidapps.guti.clase14_toolslocalizacion) junto con un hash del certificado se solicita una API KEY
+
+Se pueden atajar los clicks sobre cualquier parte del mapa o sobre markers puntuales
+
+Puedo setear diferentes eventos sobre el mapa
+Setear onClicks sobre Markers
+Geocoder => permite obtener una coordenada a partir de una dirección.
+    Esto tiene que ir dentro de un thread porque la función getFromLocationName es bloqueante y se conecta a internet
