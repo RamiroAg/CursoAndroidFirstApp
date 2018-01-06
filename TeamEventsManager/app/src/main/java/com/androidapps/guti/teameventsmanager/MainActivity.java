@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,11 +17,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.androidapps.guti.teameventsmanager.events.EventsController;
-import com.androidapps.guti.teameventsmanager.workgroups.WorkgroupsController;
+import com.androidapps.guti.teameventsmanager.events.NewEventFragment;
+import com.androidapps.guti.teameventsmanager.home.HomeController;
+import com.androidapps.guti.teameventsmanager.home.HomeFragment;
+import com.androidapps.guti.teameventsmanager.home.HomeScreenManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private HomeController controller;
+    private HomeScreenManager screenManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //---------------------------------------------------------------------------------------------
+        //A esta altura el fragment no está cargado, entonces no se pueden capturar los controles
+        //Tendría que cargar el screen manager al momento de cargar el fragment
+
+        showFragment(0);
     }
 
     @Override
@@ -89,10 +101,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_item_events) {
-            Log.d("NavigationDrawer", "Events Item presed");
-            showFragment(0);
+            Log.d("NavigationDrawer", "Events Item pressed");
+            showFragment(1);
         } else if (id == R.id.nav_item_maintenance) {
-            Log.d("NavigationDrawer", "Maintenance Item presed");
+            Log.d("NavigationDrawer", "Maintenance Item pressed");
             showFragment(1);
         } else if (id == R.id.nav_item_team1) {
             Log.d("NavigationDrawer", "Team1 Item presed");
@@ -105,26 +117,39 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void showFragment(int numeroContenido)
+    /**
+     * El Activity siempre será el encargado de manipular fragments
+     * Carga en pantalla determinado Fragment
+     * @param contentNumber
+     */
+    public void showFragment(int contentNumber)
     {
         Fragment fragment;
 
-        Bundle bundle = new Bundle();
-        bundle.putInt("idPlaneta",numeroContenido);
-
-        if(numeroContenido == 0)
-            fragment = new WorkgroupsController();
-        else
-            fragment = new EventsController();
-
-        fragment.setArguments(bundle);
+        switch (contentNumber) {
+            case 0:     //Home
+                fragment = new HomeFragment();
+                break;
+            case 1:     //Events
+                fragment = new com.androidapps.guti.teameventsmanager.events.HomeFragment();
+                break;
+            case 2:
+                fragment = new NewEventFragment();
+                break;
+            default:
+                fragment = new HomeFragment();
+                break;
+        }
 
         //Objeto que permite hacer el intercambio de Fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.main_fragment_container, fragment) //Remplaza un fragment
+                .addToBackStack(null)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
         //Si hay algún fragment en el layout "contenedor" lo saca y en su lugar pone fragment
 
     }
+
 }

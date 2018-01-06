@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+
+    <TextView
+        android:id="@+id/lblEventName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/events_new_form_name" />
+
+    <EditText
+        android:id="@+id/editEventName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/events_new_form_name" />
+
+    <TextView
+        android:id="@+id/lblEventDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/events_new_form_lbl_start_date" />
+
+    <EditText
+        android:id="@+id/editEventDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/lblEventStartTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/events_new_form_lbl_start_time" />
+
+    <EditText
+        android:id="@+id/editEventStartTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="time" />
+
+    <TextView
+        android:id="@+id/lblEventDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/events_new_form_lbl_description" />
+
+    <EditText
+        android:id="@+id/editEventDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/events_new_form_lbl_description" />
+
+    <Button
+        android:id="@+id/btnEventSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/events_new_form_btn_save" />
+</LinearLayout>

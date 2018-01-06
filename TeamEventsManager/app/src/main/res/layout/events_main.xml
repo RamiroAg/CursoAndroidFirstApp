@@ -7,5 +7,12 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenido al mòdulo de eventos" />
+        android:text="Bienvenido al mòdulo de eventos"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <Button
+        android:id="@+id/btnNewEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear nuevo evento" />
 </LinearLayout>
