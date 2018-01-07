@@ -21,6 +21,7 @@ import com.androidapps.guti.teameventsmanager.events.NewEventFragment;
 import com.androidapps.guti.teameventsmanager.home.HomeController;
 import com.androidapps.guti.teameventsmanager.home.HomeFragment;
 import com.androidapps.guti.teameventsmanager.home.HomeScreenManager;
+import com.androidapps.guti.teameventsmanager.workgroups.NewWorkgroupFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -100,17 +101,36 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_item_events) {
-            Log.d("NavigationDrawer", "Events Item pressed");
-            showFragment(1);
-        } else if (id == R.id.nav_item_maintenance) {
-            Log.d("NavigationDrawer", "Maintenance Item pressed");
-            showFragment(1);
-        } else if (id == R.id.nav_item_team1) {
-            Log.d("NavigationDrawer", "Team1 Item presed");
-        } else if (id == R.id.nav_item_team2) {
-            Log.d("NavigationDrawer", "Team2 Item presed");
+        switch (id) {
+            case R.id.nav_item_events:
+                Log.d("NavigationDrawer", "Events Item pressed");
+                showFragment(1);
+                break;
+            case R.id.nav_item_maintenance:
+                Log.d("NavigationDrawer", "Maintenance Item pressed");
+                showFragment(1);
+                break;
+            case R.id.nav_item_workgroups:
+                Log.d("NavigationDrawer", "Workgroups Item pressed");
+                break;
+            case R.id.nav_item_team1:
+                Log.d("NavigationDrawer", "Team1 Item pressed");
+                break;
+            case R.id.nav_item_team2:
+                Log.d("NavigationDrawer", "Team2 Item pressed");
+                break;
         }
+//        if (id == R.id.nav_item_events) {
+//            Log.d("NavigationDrawer", "Events Item pressed");
+//            showFragment(1);
+//        } else if (id == R.id.nav_item_maintenance) {
+//            Log.d("NavigationDrawer", "Maintenance Item pressed");
+//            showFragment(1);
+//        } else if (id == R.id.nav_item_team1) {
+//            Log.d("NavigationDrawer", "Team1 Item presed");
+//        } else if (id == R.id.nav_item_team2) {
+//            Log.d("NavigationDrawer", "Team2 Item presed");
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -136,6 +156,12 @@ public class MainActivity extends AppCompatActivity
             case 2:
                 fragment = new NewEventFragment();
                 break;
+            case 3:
+                fragment = new com.androidapps.guti.teameventsmanager.workgroups.HomeFragment();
+                break;
+            case 4:
+                fragment = new NewWorkgroupFragment();
+                break;
             default:
                 fragment = new HomeFragment();
                 break;
@@ -151,5 +177,4 @@ public class MainActivity extends AppCompatActivity
         //Si hay algún fragment en el layout "contenedor" lo saca y en su lugar pone fragment
 
     }
-
 }

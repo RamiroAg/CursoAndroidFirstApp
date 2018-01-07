@@ -9,4 +9,10 @@
         android:layout_height="wrap_content"
         android:text="Bienvenido al mòdulo de Grupos de Trabajo"
         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <Button
+        android:id="@+id/btnNewWorkgroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nuevo Grupo de Trabajo" />
 </LinearLayout>
