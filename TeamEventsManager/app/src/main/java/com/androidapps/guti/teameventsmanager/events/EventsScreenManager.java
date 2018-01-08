@@ -15,7 +15,7 @@ public class EventsScreenManager {
     private Button btnNewEvent;
 
     public EventsScreenManager (View v){
-        btnNewEvent = (Button)v.findViewById(R.id.btnNewEvent);
+        //btnNewEvent = (Button)v.findViewById(R.id.btnNewEvent);
     }
 
     public void setButtonListener(View.OnClickListener listener)

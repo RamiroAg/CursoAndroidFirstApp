@@ -1,11 +1,8 @@
 package com.androidapps.guti.teameventsmanager.events;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.androidapps.guti.teameventsmanager.MainActivity;
@@ -20,7 +17,8 @@ import java.util.ArrayList;
 public class MainEventsController implements View.OnClickListener{
     private EventsScreenManager screenManager;
     private ArrayList<Fragment> fragmentCollection;
-    private MainActivity activity;
+    public MainActivity activity;
+    public android.support.v4.app.FragmentManager fragmentManager;
 
     public MainEventsController(){}
 
@@ -30,6 +28,7 @@ public class MainEventsController implements View.OnClickListener{
         this.fragmentCollection = new ArrayList<Fragment>();
         this.fragmentCollection.add(new HomeFragment());
         this.activity = (MainActivity) activity;
+        this.fragmentManager = this.activity.fragmentManager;
 
         this.screenManager.setButtonListener(this);
     }
@@ -38,9 +37,9 @@ public class MainEventsController implements View.OnClickListener{
     public void onClick(View view) {
         Button btn = (Button) view;
         switch(btn.getId()){
-            case R.id.btnNewEvent:
-                activity.showFragment(2);
-                break;
+//            case R.id.btnNewEvent:
+//                activity.showFragment(2);
+//                break;
             default:
                 activity.showFragment(2);
                 break;
