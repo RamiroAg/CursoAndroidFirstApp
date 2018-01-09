@@ -1,6 +1,7 @@
 package com.androidapps.guti.teameventsmanager.events;
 
 import android.app.Activity;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
@@ -35,7 +36,7 @@ public class MainEventsController implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        Button btn = (Button) view;
+        FloatingActionButton btn = (FloatingActionButton) view;
         switch(btn.getId()){
 //            case R.id.btnNewEvent:
 //                activity.showFragment(2);
