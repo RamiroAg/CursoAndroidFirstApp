@@ -14,11 +14,13 @@ import com.androidapps.guti.teameventsmanager.R;
  */
 
 public class NewEventFragment extends Fragment {
-
+    public NewEventController controller;
+    public NewEventScreenManager screenManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.events_new, container,false);
-
+        screenManager = new NewEventScreenManager(v);
+        controller = new NewEventController(screenManager, getActivity());
         //Al fragment le paso datos a través de un bundle
 //        Bundle args = getArguments();
         //Hacer algo con los argumentos recibidos, si son necesarios
