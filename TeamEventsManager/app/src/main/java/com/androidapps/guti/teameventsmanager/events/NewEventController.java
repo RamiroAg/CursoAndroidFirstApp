@@ -21,8 +21,8 @@ public class NewEventController implements View.OnClickListener {
     private final MainActivity activity;
     private NewEventScreenManager screenManager;
 
-    private static final String CERO = "0";
-    private static final String BARRA = "/";
+    private static final String ZERO = "0";
+    private static final String SLASH = "/";
     private static final String DOS_PUNTOS = ":";
 
     //Calendario para obtener fecha & hour
@@ -65,11 +65,11 @@ public class NewEventController implements View.OnClickListener {
                 //Esta variable lo que realiza es aumentar en uno el mes ya que comienza desde 0 = enero
                 final int mesActual = month + 1;
                 //Formateo el día obtenido: antepone el 0 si son menores de 10
-                String diaFormateado = (dayOfMonth < 10)? CERO + String.valueOf(dayOfMonth):String.valueOf(dayOfMonth);
+                String diaFormateado = (dayOfMonth < 10)? ZERO + String.valueOf(dayOfMonth):String.valueOf(dayOfMonth);
                 //Formateo el mes obtenido: antepone el 0 si son menores de 10
-                String mesFormateado = (mesActual < 10)? CERO + String.valueOf(mesActual):String.valueOf(mesActual);
+                String mesFormateado = (mesActual < 10)? ZERO + String.valueOf(mesActual):String.valueOf(mesActual);
                 //Muestro la fecha con el formato deseado
-                screenManager.setEventDate(diaFormateado + BARRA + mesFormateado + BARRA + year);
+                screenManager.setEventDate(diaFormateado + SLASH + mesFormateado + SLASH + year);
             }
             //Estos valores deben ir en ese orden, de lo contrario no mostrara la fecha actual
             /**
@@ -85,9 +85,9 @@ public class NewEventController implements View.OnClickListener {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 //Formateo el hour obtenido: antepone el 0 si son menores de 10
-                String horaFormateada =  (hourOfDay < 10)? String.valueOf(CERO + hourOfDay) : String.valueOf(hourOfDay);
+                String horaFormateada =  (hourOfDay < 10)? String.valueOf(ZERO + hourOfDay) : String.valueOf(hourOfDay);
                 //Formateo el minute obtenido: antepone el 0 si son menores de 10
-                String minutoFormateado = (minute < 10)? String.valueOf(CERO + minute):String.valueOf(minute);
+                String minutoFormateado = (minute < 10)? String.valueOf(ZERO + minute):String.valueOf(minute);
                 //Obtengo el valor a.m. o p.m., dependiendo de la selección del usuario
                 String AM_PM;
                 if(hourOfDay < 12) {
@@ -96,7 +96,7 @@ public class NewEventController implements View.OnClickListener {
                     AM_PM = "p.m.";
                 }
                 //Muestro la hour con el formato deseado
-                screenManager.setEventDate(horaFormateada + DOS_PUNTOS + minutoFormateado + " " + AM_PM);
+                screenManager.setEventTime(horaFormateada + DOS_PUNTOS + minutoFormateado + " " + AM_PM);
             }
             //Estos valores deben ir en ese orden
             //Al colocar en false se muestra en formato 12 horas y true en formato 24 horas
@@ -110,7 +110,7 @@ public class NewEventController implements View.OnClickListener {
         Event newEvent = new Event();
         newEvent.name = screenManager.getEventName();
         newEvent.description = screenManager.getEventDescription();
-//        newEvent.eventDate = screenManager.getEventDate();
-//        newEvent.eventTime = screenManager.getEventStartTime();
+        newEvent.eventDate = screenManager.getEventDate();
+        newEvent.eventTime = screenManager.getEventStartTime();
     }
 }

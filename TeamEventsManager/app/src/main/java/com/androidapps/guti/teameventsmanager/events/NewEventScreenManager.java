@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.androidapps.guti.teameventsmanager.R;
+import com.androidapps.guti.teameventsmanager.Services.CommonServices;
 
 import java.util.Date;
 
@@ -45,21 +46,21 @@ public class NewEventScreenManager {
     public String getEventName(){
         return editEventName.getText().toString();
     }
-    public String getEventDate(){
-        return editEventDate.getText().toString();
+    public Date  getEventDate(){
+        return CommonServices.getDateFromString(editEventDate.getText().toString());
     }
-    public String getEventStartTime(){
-        return editEventStartTime.getText().toString();
+    public Date getEventStartTime(){
+        return CommonServices.getTimeFromString(editEventStartTime.getText().toString());
     }
     public String getEventDescription(){
         return editEventDescription.getText().toString();
     }
 
     public void setEventDate(String date) {
-        editEventStartTime.setText(date);
+        editEventDate.setText(date);
     }
 
     public void setEventTime(String time) {
-        editEventDate.setText(time);
+        editEventStartTime.setText(time);
     }
 }

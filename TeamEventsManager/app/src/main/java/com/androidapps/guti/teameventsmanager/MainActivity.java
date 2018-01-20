@@ -20,6 +20,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.androidapps.guti.teameventsmanager.Model.DataAccess.EventManagerDao;
+import com.androidapps.guti.teameventsmanager.Model.DataAccess.JsonDao;
 import com.androidapps.guti.teameventsmanager.events.NewEventFragment;
 import com.androidapps.guti.teameventsmanager.home.HomeController;
 import com.androidapps.guti.teameventsmanager.home.HomeFragment;
@@ -37,21 +39,14 @@ public class MainActivity extends AppCompatActivity
 
     public FragmentManager fragmentManager;
 
+    public EventManagerDao eventDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         //El DL es el elemento que contiene todo (vista + menú lateral)
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -64,6 +59,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         //---------------------------------------------------------------------------------------------
+
+        eventDao = new JsonDao(this);
+
         //A esta altura el fragment no está cargado, entonces no se pueden capturar los controles
         //Tendría que cargar el screen manager al momento de cargar el fragment
 

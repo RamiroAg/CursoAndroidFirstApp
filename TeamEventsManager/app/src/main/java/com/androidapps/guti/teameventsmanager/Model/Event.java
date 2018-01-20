@@ -1,6 +1,5 @@
 package com.androidapps.guti.teameventsmanager.Model;
 
-import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -14,7 +13,7 @@ public class Event {
 
     public Date eventDate;
 
-    public Time eventTime;
+    public Date eventTime;
 
     public int ownerId;
 
