@@ -7,7 +7,6 @@ import android.widget.Button;
 
 import com.androidapps.guti.teameventsmanager.MainActivity;
 import com.androidapps.guti.teameventsmanager.R;
-import com.androidapps.guti.teameventsmanager.events.EventsScreenManager;
 
 
 /**

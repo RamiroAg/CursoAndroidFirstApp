@@ -1,4 +1,4 @@
-package com.androidapps.guti.teameventsmanager.events;
+package com.androidapps.guti.teameventsmanager.events.newEvent;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;

@@ -1,4 +1,4 @@
-package com.androidapps.guti.teameventsmanager.events;
+package com.androidapps.guti.teameventsmanager.events.home;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -9,27 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.androidapps.guti.teameventsmanager.Model.Event;
 import com.androidapps.guti.teameventsmanager.R;
 import com.androidapps.guti.teameventsmanager.ScreenSlidePagerAdapter;
-import com.androidapps.guti.teameventsmanager.home.HomeController;
-import com.androidapps.guti.teameventsmanager.home.HomeScreenManager;
-
-import java.util.ArrayList;
 
 /**
  * Created by ramiro.a.gutierrez on 1/5/2018.
  */
 
 public class HomeFragment extends Fragment {
-    public MainEventsController controller;
+    public HomeController controller;
     public EventsScreenManager screenManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.events_main, container,false);
         screenManager = new EventsScreenManager(v);
-        controller = new MainEventsController(screenManager, getActivity());
+        controller = new HomeController(screenManager, getActivity());
         //Al fragment le paso datos a través de un bundle
 //        Bundle args = getArguments();
         //Hacer algo con los argumentos recibidos, si son necesarios
@@ -44,8 +39,6 @@ public class HomeFragment extends Fragment {
 
 //        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE); //Indico que los tabs son scrolleables
         tabLayout.setTabMode(TabLayout.MODE_FIXED); //Indico que los tabs quedan fijos
-
-        ArrayList<Event> eventList = controller.activity.eventDao.getAllEvents();
 
         return v;
     }

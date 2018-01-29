@@ -1,4 +1,4 @@
-package com.androidapps.guti.teameventsmanager.events;
+package com.androidapps.guti.teameventsmanager.events.home;
 
 import android.app.Activity;
 import android.support.design.widget.FloatingActionButton;

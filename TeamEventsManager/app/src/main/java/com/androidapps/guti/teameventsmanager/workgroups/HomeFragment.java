@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.androidapps.guti.teameventsmanager.R;
-import com.androidapps.guti.teameventsmanager.events.EventsScreenManager;
-import com.androidapps.guti.teameventsmanager.events.MainEventsController;
 
 /**
  * Created by ramiro.a.gutierrez on 1/6/2018.
