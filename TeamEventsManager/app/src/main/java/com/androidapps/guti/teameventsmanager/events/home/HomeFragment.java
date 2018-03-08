@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.androidapps.guti.teameventsmanager.R;
-import com.androidapps.guti.teameventsmanager.ScreenSlidePagerAdapter;
 
 /**
  * Created by ramiro.a.gutierrez on 1/5/2018.
@@ -34,7 +33,7 @@ public class HomeFragment extends Fragment {
         PagerAdapter adapter = new ScreenSlidePagerAdapter(getChildFragmentManager()); //getChildFragmentManager() se usa cuando se necesita un fragmentManager desde un fragment y no desde un Activity
         pager.setAdapter(adapter);
 
-        TabLayout tabLayout = (TabLayout)controller.activity.findViewById(R.id.tabLayout);
+        TabLayout tabLayout = (TabLayout)v.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(pager);    //Atacheo el comportamiento del tab al del pager
 
 //        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE); //Indico que los tabs son scrolleables

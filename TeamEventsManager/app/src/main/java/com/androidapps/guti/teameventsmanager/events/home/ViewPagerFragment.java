@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.androidapps.guti.teameventsmanager.MainActivity;
+import com.androidapps.guti.teameventsmanager.Model.DataAccess.EventManagerDao;
+import com.androidapps.guti.teameventsmanager.Model.DataAccess.JsonDao;
 import com.androidapps.guti.teameventsmanager.Model.Event;
 import com.androidapps.guti.teameventsmanager.R;
 
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 public class ViewPagerFragment extends Fragment {
 
     public HomeController controller;
+    public MainActivity activity;
+
     public ViewPagerFragment(){
 
     }
@@ -33,31 +37,25 @@ public class ViewPagerFragment extends Fragment {
 //        TextView txtPageSubtitle = (TextView)v.findViewById(R.id.textView5);
 //        txtPageSubtitle.setText(this.message);
 
-        //ArrayList<Event> eventList = controller.activity.eventDao.getAllEvents();
+        this.activity = (MainActivity) getActivity();
+        EventManagerDao eventDao = new JsonDao(this.activity);
+        ArrayList<Event> eventList = eventDao.getAllEvents();
 
-//        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(eventList, controller.activity);
-//
-//        //Traer el RV, crear adapter, asociar adapter
-//        RecyclerView rv = (RecyclerView) getActivity().findViewById(R.id.rv_events);
-//        rv.setAdapter(rvAdapter);
-//        //Para indicarle al RV si mostrar objetos como lista o grilla necesito usar un Layout Manager
-////        rv.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(eventList, this.activity);
+
+        //Traer el RV, crear adapter, asociar adapter
+        RecyclerView rv = (RecyclerView) v.findViewById(R.id.rv_events);
+        rv.setAdapter(rvAdapter);
+        //Para indicarle al RV si mostrar objetos como lista o grilla necesito usar un Layout Manager
+//        rv.setLayoutManager(new LinearLayoutManager(this));
 //
 //        //Pruebo mostrarlo como grilla
 //        rv.setLayoutManager(new GridLayoutManager(controller.activity, 2));
 
         //RecyclerView
-        RecyclerView list = (RecyclerView)v.findViewById(R.id.rv_events);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        list.setLayoutManager(layoutManager);
-
-        //Cargo la lista de elementos
-        ArrayList<Event> eventList = controller.activity.eventDao.getAllEvents();
-
-        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(eventList, (MainActivity) getActivity());
-        list.setAdapter(rvAdapter);
-
-
+//        RecyclerView list = (RecyclerView)v.findViewById(R.id.rv_events);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this.activity);
+        rv.setLayoutManager(layoutManager);
         return v;
     }
 }

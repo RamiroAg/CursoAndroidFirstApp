@@ -1,4 +1,4 @@
-package com.androidapps.guti.teameventsmanager;
+package com.androidapps.guti.teameventsmanager.events.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,17 +30,17 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         Bundle bundle = getBundle(position);
         Fragment fragment = new ViewPagerFragment();
         fragment.setArguments(bundle);
-        return fragment;
-//        switch(position)
-//        {
-//            //En esta versión no reutilizo fragments, siempre creo uno nuevo
-//            //Podría usarse un singleton
-//            case TODAY_PAGE :return new ViewPagerFragment();
-//            case WEEK_PAGE : return new ViewPagerFragment();
-//            case MONTH_PAGE : return new ViewPagerFragment();
-//            case ALL_PAGE : return new ViewPagerFragment();
-//        }
-//        return null;
+//        return fragment;
+        switch(position)
+        {
+            //En esta versión no reutilizo fragments, siempre creo uno nuevo
+            //Podría usarse un singleton
+            case TODAY_PAGE :return new ViewPagerFragment();
+            case WEEK_PAGE : return new ViewPagerFragment();
+            case MONTH_PAGE : return new ViewPagerFragment();
+            case ALL_PAGE : return new ViewPagerFragment();
+        }
+        return null;
     }
 
     @Override

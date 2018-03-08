@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.androidapps.guti.teameventsmanager.MainActivity;
+import com.androidapps.guti.teameventsmanager.Model.DataAccess.EventManagerDao;
+import com.androidapps.guti.teameventsmanager.Model.DataAccess.JsonDao;
 
 import java.util.ArrayList;
 
