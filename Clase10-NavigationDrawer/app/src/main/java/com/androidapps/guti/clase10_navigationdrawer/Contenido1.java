@@ -20,7 +20,7 @@ public class Contenido1 extends Fragment{
         TextView txtTitulo = (TextView)v.findViewById(R.id.txtTitulo);
         TextView txtInfo = (TextView)v.findViewById(R.id.txtInfo);
 
-        //Al fragment le paso datos a través de un bundle
+        //Al fragment le paso datos a través de un bundle0
         Bundle args = getArguments();
         int idPlaneta = args.getInt("idPlaneta");
         switch(idPlaneta)

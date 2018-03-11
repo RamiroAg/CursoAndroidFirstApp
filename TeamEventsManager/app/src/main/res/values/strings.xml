@@ -5,4 +5,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--Eventos-->
+    <string name="events_new_form_name">Event Name</string>
+    <string name="events_new_form_lbl_start_date">Start Date</string>
+    <string name="events_new_form_lbl_start_time">Start Time</string>
+    <string name="events_new_form_lbl_description">Description</string>
+    <string name="events_new_form_btn_save">Save</string>
+
+    <!--Time Format-->
+    <string name="titlulo_pickers">Obtener fecha y hora</string>
+    <string name="formato_fecha">dd/mm/yyyy</string>
+    <string name="formato_hora">hh:mm</string>
 </resources>

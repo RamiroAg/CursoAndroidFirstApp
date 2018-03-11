@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <TextView
+            android:id="@+id/lblMainTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:text="Menú principal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            tools:text="Pantalla Principal" />
+
+        <Button
+            android:id="@+id/btnEventsMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:text="Menú Eventos" />
+
+        <Button
+            android:id="@+id/btnWorkgroupsMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menú Equipos" />
+
+
+</LinearLayout>

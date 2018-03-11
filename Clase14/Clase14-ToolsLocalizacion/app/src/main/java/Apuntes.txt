@@ -1,0 +1,40 @@
+Geoposición
+
+Povee:
+ - Latitud
+ - Longitud
+ - Curso, sentido respecto al norte
+ - Velocidad
+
+La red de GPS da una medición con mayor precisión que la red GSM. Se puede elegir cualquiera para determinar una ubicación
+
+Manejo de permisos
+Grupos de permisos
+ - Algunos permisos se siguen aceptando al momento de instalar
+ - Otros tienen que ser chequeados al momento de ser usados por primera vez
+
+ - En target sdk se puede forzar la versión de compatibilidad de android para evitar preguntar por estos accesos al momento de ser necesitados
+
+Obtener el locationManager, crear una clase que implemente una interfaz y luego agregar el listener
+Hay 3 proveedores de ubicación que se le pueden pasar por prámetro
+ - GPS_PROVIDER
+ - NETWORK_PROVIDER =>
+ - PASSIVE_PROVIDER => si hay otra app que de casualidad está usando el gps, me llegan las ubicaciones
+
+Otros parámetros que se pasan al GPS:
+ - MinTime: Impacta en la batería, elegir el mayor tiempo posible [milisegundos]
+ - MinDist: actualiza la ubicación en caso de que se supere la distancia Y si se cumple el tiempo mínimo.
+Si se ponen en cero estos dos valores, el gps estará enviando notificaciones cada 1 segundo. No se puede usar tiempos más cortos.
+
+Para la app en segundo plano, usar un PASSIVE_PROVIDER, se recomienda establecer un tiempo mayor a 5 minutos.
+Para la app en primer plano, setear un tiempo lo suficientemente rápido para una buena experiencia de usuario.
+
+Cuando se produzca el evento podemos consultar:
+ - getLatitude()
+ - getLongitude()
+ - getSpeed()
+ - getAltitude()
+ - getTime()
+ - getBearing()  - devuelve el curso en grados
+
+
