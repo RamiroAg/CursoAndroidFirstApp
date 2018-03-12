@@ -15,8 +15,20 @@ import java.util.List;
 
 public class JsonDao implements EventManagerDao {
     private MainActivity activity;
+    private static JsonDao instance = null;
+
     public JsonDao(MainActivity activity){
         this.activity = activity;
+    }
+
+    public static JsonDao getInstance(MainActivity activity){
+        if (instance == null){
+            instance = new JsonDao(activity);
+        }
+        else {
+            instance.activity = activity;
+        }
+        return instance;
     }
 
     @Override

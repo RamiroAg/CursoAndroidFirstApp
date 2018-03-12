@@ -34,11 +34,10 @@ public class ViewPagerFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.events_viewpager_layout, container, false);
-//        TextView txtPageSubtitle = (TextView)v.findViewById(R.id.textView5);
-//        txtPageSubtitle.setText(this.message);
+
 
         this.activity = (MainActivity) getActivity();
-        EventManagerDao eventDao = new JsonDao(this.activity);
+        EventManagerDao eventDao = JsonDao.getInstance(this.activity);
         ArrayList<Event> eventList = eventDao.getAllEvents();
 
         RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(eventList, this.activity);
@@ -52,8 +51,6 @@ public class ViewPagerFragment extends Fragment {
 //        //Pruebo mostrarlo como grilla
 //        rv.setLayoutManager(new GridLayoutManager(controller.activity, 2));
 
-        //RecyclerView
-//        RecyclerView list = (RecyclerView)v.findViewById(R.id.rv_events);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.activity);
         rv.setLayoutManager(layoutManager);
         return v;
