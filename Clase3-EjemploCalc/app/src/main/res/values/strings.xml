@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" translatable="false">Clase3</string>
+    <string name="texto_boton_dos" translatable="false">2</string>
+    <string name="mensaje">Hello world</string>
+</resources>
