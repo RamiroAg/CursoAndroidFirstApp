@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clase2-Botones.iml" filepath="$PROJECT_DIR$/.idea/modules/Clase2-Botones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Clase2-Botones.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Clase2-Botones.app.iml" />
+    </modules>
+  </component>
+</project>
